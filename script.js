@@ -132,6 +132,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Initialize skill levels after DOM content is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Previous script.js content remains the same
+    
+    // Add skill level initialization
+    document.querySelectorAll('.skill-level').forEach(skill => {
+        const level = skill.getAttribute('data-level');
+        skill.style.setProperty('--level', `${level}%`);
+    });
+
+    // Add intersection observer for timeline items
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+    });
+});
+
 function initNameAnimation() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
