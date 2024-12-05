@@ -391,4 +391,215 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
+/* Previous CSS styles remain the same, adding new styles for added elements */
 
+.social-links-hero {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.social-links-hero a {
+    color: #fff;
+    font-size: 2.5rem;
+    transition: all 0.3s;
+}
+
+.social-links-hero a:hover {
+    color: #ffcc00;
+    transform: scale(1.2);
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.skills-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.skills-category {
+    margin-bottom: 3rem;
+}
+
+.skills-category h3 {
+    color: #ffcc00;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.skill-level {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-level::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #ffcc00;
+    width: var(--level);
+    animation: skillLevel 1.5s ease-out;
+}
+
+@keyframes skillLevel {
+    from { width: 0; }
+    to { width: var(--level); }
+}
+
+.specialty-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.specialty-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.specialty-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.specialty-card i {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 1rem;
+}
+
+.experience-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.timeline-icon {
+    background: #ffcc00;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-left: 2rem;
+    flex: 1;
+    max-width: 500px;
+}
+
+.timeline-date {
+    color: #ffcc00;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.project-link {
+    display: inline-block;
+    color: #ffcc00;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: all 0.3s;
+}
+
+.project-link:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        justify-content: flex-start;
+    }
+
+    .timeline-content {
+        margin-left: 1rem;
+    }
+
+    .specialty-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links-hero {
+        gap: 1rem;
+    }
+
+    .social-links-hero a {
+        font-size: 2rem;
+    }
+}
